@@ -1,0 +1,123 @@
+{
+    "description": "Autotest configuration file for dependency tree detection validation",
+    "version": 1.5,
+    "base_config": {
+        "validate_scan_output": true,
+        "_comment_validate_scan_output": "Whether to validate the scan output/exit code. Options: true | false. Default: true",
+        "scan_output": {
+            "security_scan_report_conclusion": "failure",
+            "_comment_security_scan_report_conclusion": "Optional. Expected scan report conclusion. Options: 'success' | 'failure'. This validates the security scan result status. If not provided, this check will not be performed.",
+            "total_libs_scanned": {
+                "gte": 1420
+            },
+            "_comment_total_libs_scanned": "Expected number of libraries scanned with comparison operator. Validates that the scan processed libraries."
+        },
+        "validate_dependency_tree": true,
+        "_comment_validate_dependency_tree": "Whether to validate the dependency tree. Options: true | false. Default: true",
+        "dependency_tree": {
+            "check_dependency_tree_detection_status": true,
+            "_comment_check_dependency_tree_detection_status": "Whether to check if dependency tree was successfully detected. Options: true | false. Default: true",
+            "expected_total_dependencies_number": {
+                "eq": 1420
+            },
+            "expected_direct_dependencies_number": {
+                "eq": 58
+            },
+            "expected_transitive_dependencies_number": {
+                "gte": 1740
+            },
+            "_comment_expected_dependencies_number": "Optional. Expected number of dependencies with comparison operator. Operators: gt (>), gte (>=), lt (<), lte (<=), eq (==). If not provided, this check will not be performed.",
+            "direct_dependencies_names_list": {
+                "eq": [
+                    "@truffle/compile-solidity-tests-0.1.39.tgz",
+                    "@truffle/plugins-0.2.15.tgz",
+                    "@truffle/dashboard-message-bus-client-0.1.12.tgz",
+                    "@truffle/preserve-0.2.17.tgz",
+                    "@truffle/db-loader-0.2.36.tgz",
+                    "@truffle/encoder-1.0.27.tgz",
+                    "@truffle/deployer-3.3.27.tgz",
+                    "@truffle/external-compile-2.0.83.tgz",
+                    "@truffle/dashboard-message-bus-0.1.12.tgz",
+                    "@truffle/dashboard-message-bus-common-0.1.7.tgz",
+                    "@truffle/contract-schema-3.4.16.tgz",
+                    "@truffle/interface-adapter-0.5.37.tgz",
+                    "@truffle/profiler-0.1.53.tgz",
+                    "@truffle/workflow-compile-4.0.71.tgz",
+                    "@truffle/contract-sources-0.2.1.tgz",
+                    "@truffle/fetch-and-compile-0.5.56.tgz",
+                    "@truffle/source-fetcher-1.0.44.tgz",
+                    "@truffle/dashboard-0.4.5.tgz",
+                    "@truffle/abi-utils-1.0.3.tgz",
+                    "@truffle/debug-utils-6.0.57.tgz",
+                    "@truffle/expect-0.1.7.tgz",
+                    "@truffle/error-0.2.2.tgz",
+                    "@truffle/events-0.1.25.tgz",
+                    "@truffle/source-map-utils-1.3.119.tgz",
+                    "@truffle/from-hardhat-0.2.20.tgz",
+                    "@truffle/compile-solidity-6.0.79.tgz",
+                    "@truffle/contract-tests-0.1.142.tgz",
+                    "@truffle/core-5.11.5.tgz",
+                    "@truffle/config-1.3.61.tgz",
+                    "@truffle/db-kit-0.2.36.tgz",
+                    "@truffle/blockchain-utils-0.1.9.tgz",
+                    "vypercontract3.vyper.py",
+                    "@truffle/resolver-9.0.53.tgz",
+                    "@truffle/hdwallet-provider-2.1.15.tgz",
+                    "@truffle/debugger-12.1.5.tgz",
+                    "@truffle/compile-vyper-3.1.115.tgz",
+                    "@truffle/test-0.2.7.tgz",
+                    "@truffle/decoder-6.1.5.tgz",
+                    "@truffle/compile-common-0.9.8.tgz",
+                    "@truffle/migrate-3.3.48.tgz",
+                    "@truffle/provisioner-0.2.84.tgz",
+                    "@truffle/spinners-0.2.5.tgz",
+                    "@truffle/dashboard-hardhat-plugin-0.2.15.tgz",
+                    "@truffle/codec-components-0.1.5.tgz",
+                    "@truffle/environment-0.2.160.tgz",
+                    "truffle-5.11.5.tgz",
+                    "@truffle/promise-tracker-0.1.7.tgz",
+                    "@truffle/artifactor-4.0.199.tgz",
+                    "@truffle/dashboard-message-bus-e2e-test-0.1.42.tgz",
+                    "@truffle/box-2.1.81.tgz",
+                    "@truffle/codec-0.17.3.tgz",
+                    "vypercontract2.v.py",
+                    "@truffle/contract-4.6.31.tgz",
+                    "@truffle/require-2.1.43.tgz",
+                    "@truffle/hdwallet-0.1.4.tgz",
+                    "@truffle/provider-0.3.13.tgz",
+                    "@truffle/code-utils-3.0.4.tgz",
+                    "@truffle/db-2.0.36.tgz"
+                ]
+            },
+            "_comment_dependencies_names_list": "Optional. Check specific libraries in direct dependencies. Operators: eq (==), contains (all items from expected list in actual), in(all items from actual list in expected), nin(actual list does not contain provided libs). If not provided, this check will not be performed.",
+            "validate_agent_versions": true,
+            "expected_agent_version": "",
+            "expected_plugin_version": "",
+            "_comment_agent_versions": "Optional. Expected agent and plugin versions. If not provided, this check will not be performed."
+        },
+        "validate_vulnerabilities_table": true,
+        "_comment_validate_vulnerabilities_table": "Whether to validate the vulnerabilities table. Options: true | false. Default: true",
+        "vulnerabilities_table": {
+            "check_vulnerabilities_table_structure": true,
+            "expected_total_vulnerabilities_number": {
+                "gte": 0
+            },
+            "vulnerabilities_ids_list": {
+                "contains": []
+            },
+            "_comment_ids_names_list": "Optional. Check specific libs ids (WS-2018-0111, CVE-2021-44906). Operators: eq (==), contains (all items from expected list in actual), in(all items from actual list in expected), nin(actual list does not contain provided libs). If not provided, this check will not be performed.",
+            "vulnerabilities_names_list": {
+                "contains": []
+            },
+            "_comment_vulnerabilities_names_list": "Optional. Check specific libs names (minimist-0.0.8.tgz). Operators: eq (==), contains (all items from expected list in actual), in(all items from actual list in expected), nin(actual list does not contain provided libs). If not provided, this check will not be performed."
+        },
+        "validate_scanner_logs": true,
+        "_comment_validate_scanner_logs": "Whether to validate scanner logs. Options: true | false. Default: false",
+        "logs": {
+            "check_scanner_logs": true,
+            "_comment_check_scanner_logs": "Whether to check scanner logs and attach them to Report Portal. Options: true | false. Default: true",
+            "expected_log_lines": [],
+            "_comment_expected_log_lines": "Optional. List of log lines to validate. Each entry should have an 'operator' (eq or regex) and 'value' (string or regex pattern). Example: [{'operator': 'eq', 'value': 'Python version: 3.11'}, {'operator': 'regex', 'value': 'Python version: \\d+\\.\\d+'}]. If not provided, only log attachment will be performed."
+        }
+    }
+}
