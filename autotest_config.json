@@ -21,7 +21,7 @@
                 "gte": 1420
             },
             "expected_direct_dependencies_number": {
-                "eq": 58
+                "eq": 56
             },
             "expected_transitive_dependencies_number": {
                 "gte": 1740
@@ -60,7 +60,6 @@
                     "@truffle/config-1.3.61.tgz",
                     "@truffle/db-kit-0.2.36.tgz",
                     "@truffle/blockchain-utils-0.1.9.tgz",
-                    "vypercontract3.vyper.py",
                     "@truffle/resolver-9.0.53.tgz",
                     "@truffle/hdwallet-provider-2.1.15.tgz",
                     "@truffle/debugger-12.1.5.tgz",
@@ -80,7 +79,6 @@
                     "@truffle/dashboard-message-bus-e2e-test-0.1.42.tgz",
                     "@truffle/box-2.1.81.tgz",
                     "@truffle/codec-0.17.3.tgz",
-                    "vypercontract2.v.py",
                     "@truffle/contract-4.6.31.tgz",
                     "@truffle/require-2.1.43.tgz",
                     "@truffle/hdwallet-0.1.4.tgz",
